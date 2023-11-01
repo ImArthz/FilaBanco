@@ -13,7 +13,7 @@ class Pessoa
     string getNome();
     void setNome(string nome);
     string getCpf();
-    void getCpf();
+    void setCpf(string cpf);
     
 };
 #endif

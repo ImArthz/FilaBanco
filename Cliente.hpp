@@ -18,6 +18,7 @@ class Cliente: public Pessoa
     int getPrio();
     string getNum_agencia();
     Cliente* getProx();
+    void setProx(Cliente* prox);
     Cliente();
     
     Cliente(string nome,string cpf,string num_conta,string num_agencia,int prio);

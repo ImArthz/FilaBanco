@@ -18,10 +18,9 @@ void Cliente:: setNum_agencia(string num_agencia)
 {
   this->num_agencia=num_agencia;
 }
-string  Cliente::string getNum_agencia()
-
+string  Cliente::getNum_agencia()
 {
-  return->num_agencia;
+  return num_agencia;
 }
 Cliente* Cliente::getProx()
 {
@@ -31,8 +30,11 @@ int Cliente:: getPrio()
 {
   return prio;
 }
-void Cliente:: setPrio()
+void Cliente:: setPrio(int prio)
 {
  this->prio=prio; 
 }
-
+void Cliente::setProx(Cliente* prox)
+{
+  this->prox=prox;
+}

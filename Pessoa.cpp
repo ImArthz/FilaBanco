@@ -1,21 +1,22 @@
 #include "Pessoa.hpp"
 #include <iostream>
 #include <string>
-Pessoa::Pessoa(string nome,string cpf),nome(nome),cpf(cpf){
-  this->next = NULL;
+using namespace std;
+Pessoa::Pessoa(string nome,string cpf):nome(nome),cpf(cpf)
+{
 }
 Pessoa::Pessoa(){
 }
-Pessoa::string getNome(){
+string Pessoa:: getNome(){
   return nome;  
 }
-Pessoa::void setNome(string nome){
+void Pessoa:: setNome(string nome){
   this->nome=nome;
 }
-Pessoa::string getCpf(){
+string Pessoa:: getCpf(){
   return cpf;
 }
-Pessoa::void setCpf(string cpf){
+void Pessoa:: setCpf(string cpf){
   this->cpf=cpf;
 }
 
