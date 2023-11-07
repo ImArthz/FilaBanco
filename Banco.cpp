@@ -4,24 +4,33 @@
 #include <string>
 #include <limits> // Biblioteca para lidar com erros de leitura de inteiro
 using namespace std;
-Banco::Banco(ListaCliente* clientes,string nome,string endereco, double telefone)
+Banco::Banco(ListaCliente* clientes,string nome,string endereco, int ddd,int telefone)
 {
     this->clientes=clientes;
     this->nome=nome;
     this->endereco=endereco;
+    this->ddd=ddd;
     this->telefone=telefone;
 }
 Banco::Banco()
 {
     this->clientes= new ListaCliente();
 }
-void Banco::setTelefone(double telefone)
+void Banco::setTelefone(int telefone)
 {
     this->telefone = telefone;
 }
-double Banco::getTelefone()
+int Banco::getTelefone()
 {
     return telefone;
+}
+void Banco::setDDD(int ddd)
+{
+    this->ddd=ddd;
+}
+int Banco::getDDD()
+{
+    return ddd;
 }
 void Banco::setNome(string nome)
 {
@@ -76,8 +85,7 @@ bool Banco::cadastraCliente()
         getline(cin,num_conta);
         while (true) {
             bool saidaaux= true;
-            cout << "->selecione a prioridade (2/1/0)\n sendo 2 - superprioridade \n1-prioridade \n 0-normal : ";
-            cin.ignore();
+            cout << "->selecione a prioridade (2/1/0)\n2 - superprioridade \n1-prioridade \n 0-normal : ";
             cin >> prio;
 
             if (cin.fail()) {

@@ -19,6 +19,6 @@ class ListaCliente
   private:
     Cliente* head;
     Cliente* tail;
-    static int Cliente_contador;
+
 };
 #endif

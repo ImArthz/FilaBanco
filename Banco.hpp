@@ -9,14 +9,17 @@ class Banco
 {
 private:
     ListaCliente* clientes;
-    double telefone;
+    int telefone;
+    int ddd;
     string nome, endereco;
 public:
-    Banco(ListaCliente* clientes,string nome,string endereco, double telefone);
+    Banco(ListaCliente* clientes,string nome,string endereco, int ddd,int telefone);
     Banco();
     ~Banco();
-    void setTelefone(double telefone);
-    double getTelefone();
+    void setTelefone(int telefone);
+    int getTelefone();
+    void setDDD(int ddd);
+    int getDDD();
     void setNome(string nome);
     string getNome();
     void setEndereco(string endereco);

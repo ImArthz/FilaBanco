@@ -1,9 +1,11 @@
 #include "Cliente.hpp"
 #include <iostream>
 using namespace std;
+int Cliente::Cliente_contador = 1;
 Cliente::Cliente(string nome,string cpf,string num_conta,string num_agencia,int prio):Pessoa(nome,cpf),num_conta(num_conta),num_agencia(num_agencia),prio(prio)
 {
   this->prox=NULL;
+  Cliente_contador++;
 }
 Cliente::Cliente(){}
 void Cliente:: setNum_conta(string num_conta)

@@ -1,6 +1,5 @@
 #include "ListaCliente.hpp"
 #include <iostream>
-int ListaCliente:: Cliente_contador=1;
 using namespace std;
 ListaCliente::ListaCliente(string nome,string cpf,string num_agencia,string num_conta,int prio)
 {
@@ -112,13 +111,28 @@ void ListaCliente:: imprimirCliente()
     }
     else{
         while(p){
-        cout<<"----------------Paciente "<<Cliente_contador++<<"----------------";
+        cout<<"----------------Cliente "<<p->Cliente_contador++<<"----------------";
         cout<<endl;
         cout << "nome: \t\t" << p->getNome() << endl;
         cout << "cpf: " << p->getCpf() << endl;
         cout << "Numero de agencia : "<<p->getNum_agencia()<<endl;
         cout << "Numero da conta : "<<p->getNum_conta()<<endl;
-        cout << "Prioridade :"<<p->getPrio();//se get prio 1 = prioridade se for 2 = superprioridade e 0 normal 
+        if(p->getPrio()==2)
+        {
+          cout<<"Prioridade : SuperPrioridade "<<endl;
+        }
+        else if(p->getPrio()==1)
+        {
+          cout<<"Prioridade : Prioridade"<<endl;
+        }
+        else if(p->getPrio()==0)
+        {
+          cout<<"Prioridade : normal"<<endl;
+        }
+        else
+        {
+          throw("erro prioridade invalida");
+        }
         cout<<endl;
         cout<<"---------------------------------------------------\n";
         p=p->getProx();

@@ -20,7 +20,7 @@ class Cliente: public Pessoa
     Cliente* getProx();
     void setProx(Cliente* prox);
     Cliente();
-    
+    static int Cliente_contador; 
     Cliente(string nome,string cpf,string num_conta,string num_agencia,int prio);
     
   
