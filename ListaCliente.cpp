@@ -9,7 +9,7 @@ ListaCliente::ListaCliente(string nome,string cpf,string num_agencia,string num_
 ListaCliente::ListaCliente()
 {
   head = NULL;
-  head = NULL;
+  tail = NULL;
 }
 bool ListaCliente::vazia()
 {
