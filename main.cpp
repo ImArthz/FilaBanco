@@ -1,4 +1,4 @@
-#include "Prova.hpp"
+#include "Prove.hpp"
 #include <iostream>
 #include <locale>
 #include <string>
@@ -43,6 +43,7 @@ int main(){
         cout<<"Vamos inicializar a criação do banco !"<<endl;
         while(true){
             cout<<"Digite o nome do banco :"<<endl;
+            cin.ignore();
             getline(cin,nomeBanco);
             cout<<"Depois de Criado é impossivel mudar o nome do banco ! \ndeseja confirmar ? (S/N)"<<endl;
             getline(cin, op);
@@ -202,6 +203,8 @@ int main(){
     }
     else if(opcaopro == 2)
     {
+      cout<<"Prova nao funciona :("<<endl;
+      /*
         Prova *p = new Prova();
         Aluno *al=new Aluno();
 
@@ -315,7 +318,7 @@ int main(){
         cout<<" Saindo do programa de Pilha ..."<<endl;
             break;
         }
-
+*/
     }
     else if(opcaopro == 3)
     {
@@ -323,7 +326,7 @@ int main(){
 
     }
     }
-            link = "https://github.com/ImArthz/Consultorio";
+            link = "https://github.com/ImArthz/FileBanco-PilhaProvas";
 
                 // Construct the command to open the URL in the default web browser
                 command = "xdg-open " + link;
