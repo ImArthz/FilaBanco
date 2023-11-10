@@ -1,3 +1,4 @@
+#include "Prova.hpp"
 #include <iostream>
 #include <locale>
 #include <string>
@@ -7,11 +8,36 @@
 #include <limits> // Biblioteca para lidar com erros de leitura de inteiro
 using namespace std;
 int main(){
+    string link,command;
+    int opcaopro;
+    bool saidamain=false;
+    int result;
+    while(!saidamain)
+    {
+    while (true) {
+            cout << "Escolha um Programa :\n1-Fila Prioritaria Banco \n2-Pilha de provas\n3-Sair " << endl;
+            cin >> opcaopro;
+
+            if (cin.fail()) {
+                cin.clear();  // Limpa o estado de erro
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Descarta entrada inválida
+                cout << "Entrada inválida. Digite um número inteiro." << endl;
+            } else if(opcaopro>3||opcaopro<=0) {
+                cout<<"Opção invalida escolha um programa dentro as opções"<<endl;
+            }
+            else {
+                // Entrada válida, podemos sair do loop
+                break;
+            }
+            }
+    if(opcaopro == 1)
+    {
+
     Banco *banco=new Banco();
     Cliente *cliente=new Cliente();
-    int opcao,result;
+    int opcao;
     int telbanco,ddd;
-    string CpfRemove,link,command,nomeBanco,op,enderecoBanco;
+    string CpfRemove,nomeBanco,op,enderecoBanco;
     bool saida= true;
      cout<<" ======================BEM VINDO========================"<<endl;
         cout<<"Vamos inicializar a criação do banco !"<<endl;
@@ -169,9 +195,134 @@ int main(){
                     cout<<"Telefone : ("<<banco->getDDD()<<")"<<banco->getTelefone()<<endl;
                     cout<<"===================================================="<<endl;
                     saida = false;
+                    cout<<"Saindo do programa de fila..."<<endl;
                     break;
             }
         }
+    }
+    else if(opcaopro == 2)
+    {
+        Prova *p = new Prova();
+        Aluno *al=new Aluno();
+
+
+        int opcaomen2;
+        bool saida = false;
+        string cpfremove,codigoremove;
+        while(!saida)
+        {
+            cout << "----------------------MENU-------------------------"<<endl;
+            cout << "1  - Cadastrar Um Aluno "<<endl;
+            cout << "2  - Remover Um Aluno "<<endl;
+            cout << "3  - Imprimir Um Aluno"<<endl;
+            cout << "4  - Cadastrar uma prova"<<endl;
+            cout << "5  - Remover uma Prova"<<endl;
+            cout << "6  - Imprimir uma prova"<<endl;
+            cout << "7  - Sair "<<endl;
+            cout << "----------------------------------------------------"<<endl;
+
+        }
+        while (true) {
+            cout << "Escolha uma opção: " << endl;
+            cin >> opcaomen2;
+
+            if (cin.fail()) {
+                cin.clear();  // Limpa o estado de erro
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Descarta entrada inválida
+                cout << "Entrada inválida. Digite um número inteiro." << endl;
+            } else if (opcaomen2>7||opcaomen2<=0) {
+                cout<<"Opção Invalida Selecione uma opção valida"<<endl;
+            }
+            else{
+                // Entrada válida, podemos sair do loop
+                break;
+            }
+            }
+        switch (opcaomen2)
+        {
+        case 1:
+            if(p->adicionarAluno())
+            {
+                cout<<"Aluno cadastrado com sucesso"<<endl;
+
+            }
+            else{
+                cout<<"Erro ao cadastrar aluno "<<endl;
+            }
+            break;
+        case 2:
+            while (true)
+                    {   
+                    cin.ignore();
+                    cout<<"Digite o cpf do Aluno que deseja remover "<<endl;
+                    getline(cin,cpfremove);
+                    // Verifique o comprimento da string para garantir que seja um CPF válido
+                    if (cpfremove.length() == 11) {
+                        // CPF tem 11 dígitos, o que é um CPF válido
+                        break;
+                    }
+                    else {
+                    cout << "CPF inválido. Digite um CPF com 11 dígitos." << endl;
+                    }
+                }
+            if(p->removerAluno(cpfremove))
+            {
+                cout<<"Aluno Removido com sucesso"<<endl;
+
+            }
+            else{
+                cout<<"Erro ao remover Aluno"<<endl;
+            }
+            break;
+        case 3:
+            p->ImprimirAluno();
+            break;
+        case 4:
+            if(p->cadastrarProva())
+            {
+                cout<<"Prova cadastrada com sucesso"<<endl;
+            }
+            else
+            {
+                cout<<"Erro ao cadastras Prova"<<endl;
+            }
+            break;
+        case 5:
+            cout<<"Digite o Codigo da prova que deseja remover :"<<endl;
+            cin.ignore();
+            getline(cin,codigoremove);
+            if(p->removerProva(codigoremove))
+            {
+                cout<<"Prova Removida com sucesso"<<endl;
+            }
+            else 
+            {
+                cout<<"Erro ao remover prova"<<endl;
+            }
+            break;
+
+        case 6:
+            if(p->imprimirProvas())
+            {
+                cout<<"Provas impressas com sucesso "<<endl;
+            }
+            else{
+                cout<<"Erro ao imprimir as provas"<<endl;
+            }
+            break;
+        case 7:
+        saida = true;
+        cout<<" Saindo do programa de Pilha ..."<<endl;
+            break;
+        }
+
+    }
+    else if(opcaopro == 3)
+    {
+        saidamain = true;
+
+    }
+    }
             link = "https://github.com/ImArthz/Consultorio";
 
                 // Construct the command to open the URL in the default web browser

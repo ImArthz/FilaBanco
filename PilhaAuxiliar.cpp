@@ -1,5 +1,7 @@
 #include <iostream>
 #include "PilhaAuxiliar.hpp"
+#include "Prova.hpp"
+#include "Aluno.hpp"
 using namespace std;
 PilhaAuxiliar::PilhaAuxiliar(string Disciplina,string Codigo_da_prova,float Nota,Aluno alunos)
 {
@@ -34,7 +36,7 @@ bool PilhaAuxiliar::vazia()
 void PilhaAuxiliar::adicionarProva(string Disciplina,string Codigo_da_prova,float Nota,Aluno alunos)
 {
     Prova* p = new Prova(Disciplina,Codigo_da_prova,Nota,alunos);
-    if(vazia)
+    if(vazia())
     {
         top = p;
         bottom = p;
@@ -95,4 +97,24 @@ void PilhaAuxiliar::RemoverProva(string Codigo_da_prova)
 			bottom=previous;
 	    }
     }
+}
+void PilhaAuxiliar::voltarpilha()
+{
+    Prova* p=top;
+    PilhaProva* pi = new PilhaProva();
+    if(vazia())
+    {
+      top=p;
+      bottom=p;
+      cout<<"Não existem provas na Pilha Auxiliar "<<endl;  
+    }
+    else{
+        while(p)
+        {
+            pi->adicionarProva(p->getDisciplina(),p->getCodigo(),p->getNota(),p->getAluno());
+            p->removerProvaauxx(p->getCodigo());
+            cout<<"Item desempilhado para a pilha original com sucesso "<<endl;
+        }
+    }
+    cout<<"Pilha voltada a posição original "<<endl;
 }

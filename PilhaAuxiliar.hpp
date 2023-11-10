@@ -2,7 +2,7 @@
 #define PILHAAUXILIAR_HPP
 #include "Prova.hpp"
 #include <iostream>
-#include <string>
+#include "Aluno.hpp"
 using namespace std;
 class PilhaAuxiliar
 {
@@ -19,5 +19,6 @@ public:
     void adicionarProva(string Disciplina,string Codigo_da_prova,float Nota,Aluno alunos);
     void RemoverProva(string Codigo_da_prova);
     bool vazia();
+    void voltarpilha();
 };
 #endif

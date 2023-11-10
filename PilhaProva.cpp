@@ -1,5 +1,7 @@
 #include <iostream>
 #include "PilhaProva.hpp"
+#include "Prova.hpp"
+#include "Aluno.hpp"
 using namespace std;
 PilhaProva::PilhaProva(string Disciplina,string Codigo_da_prova,float Nota,Aluno alunos)
 {

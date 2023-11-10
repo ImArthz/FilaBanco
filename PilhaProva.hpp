@@ -1,7 +1,8 @@
 #ifndef PILHAPROVA_HPP
 #define PILHAPROVA_HPP
-#include "Prova.hpp"
 #include <iostream>
+#include "Aluno.hpp"
+#include "Prova.hpp"
 using namespace std;
 class PilhaProva
 {

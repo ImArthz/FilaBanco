@@ -2,8 +2,8 @@
 #define PROVA_HPP
 #include <iostream>
 #include "Aluno.hpp"
-#include "PilhaProva.hpp"
-#include "PilhaAuxiliar.hpp"
+class PilhaProva; // Forward declaration
+class PilhaAuxiliar; // Forward declaration
 #include <string>
 
 using namespace std;
@@ -15,6 +15,7 @@ class Prova {
     Aluno alunos;
     Prova* prox;
     PilhaProva* provas;
+    PilhaAuxiliar* auxiliar;
     public:
     void setDisciplina(string Disciplina);
     string getDisciplina();
@@ -22,7 +23,7 @@ class Prova {
     string getCodigo();
     void setNota(float Nota);
     float getNota();
-    Prova(string Disciplina,string Codigo_da_prova,float Nota,Aluno alunos);
+    Prova(string Disciplina,string Codigo_da_prova,float Nota,Aluno alunos,PilhaProva* provas,PilhaAuxiliar* auxiliar);
     Prova();
     void setProx(Prova* prox);
     Prova* getProx();
@@ -34,10 +35,9 @@ class Prova {
     void removerProvaaux(string Codigo_da_prova);
     void voltarpilha();
     bool imprimirProvas();
-    
-    /*
-    desempilhar ler cada elemento desempilhado e adicionado a uma pilha x , apos leitura imprima , 
-    apos imprimir todos desempilhe todos elementos e empilhe-os em suas posições originais da 1 pilha
-    */
+    void removerProvaauxx(string Codigo_da_prova);
+    bool cadastrarProva();
+    bool removerProva(string Codigo_da_prova);
+
 };
 #endif
